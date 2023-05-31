@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+:root{
+    --fuenteParrafos: 'Open Sans', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-decoration: none;
+}
+
+header{
+    width: 100%;
+    position: relative; /* Para que se mantenga por encima de todo en la posicion de arriba */
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+/* Header Superior */
+.header__superior{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo img{
+    width: 150px;
+}
+
+/* Barra Menu */
+
+.contenedor__menu{
+    width: 100%;
+    height: 70px;
+    background: #023877;
+    padding: 0px 20px;
+}
+
+.menu{
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+}
+
+nav{
+    height: 100%;
+}
+
+nav > ul{ /* que se vaya al ul que le sigue al nav */
+    height: 100%;
+    display: flex; /* Para poder poner los li uno al aldo del otro */
+}
+
+nav ul li{
+    height: 100%;
+    list-style: none;
+    position: relative; /* Para que el submenu aparezca en relacion al padre */
+}
+
+nav > ul > li:first-child > a{
+    background-image: url(../img/work-from-home.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 20px 40px;
+}
+
+nav > ul > li:first-child:hover > a{
+    background-image: url(../img/work-from-home.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+nav > ul > li > a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300ms ease;
+}
+
+nav > ul > li > a:hover{
+    transform: scale(1.1);
+    background: #0074C7;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#selected{
+    transform: scale(1.1);
+    background-color: #0074C7;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Sub-Menu */
+
+nav ul li ul{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 90px;
+    left: -5px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul{
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
+}
+
+nav ul li ul:before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+
+nav ul li ul li a{
+    display: block;
+    color: #0099e9;
+    padding: 6px;
+    padding-left: 14px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+
+nav ul li ul li a:hover{
+    background: #0074C7;
+    color: #fff;
+    transform: scale(1.2);
+    padding-left: 30px;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+/*articulo*/
+main{
+    background: #f0f0f0;
+    padding: 40px 20px;
+    margin-top: 270px;
+}
+
+/* Elementos resposivos */
+
+.icon__menu{
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    width: 26px;
+    height: 100%;
+    display: none;
+    align-items: center;
+}
+
+#label__check{
+    width: 26px;
+    height: 100%;
+    display: none;
+}
+
+#check__menu{
+    display: none;
+}
+
+@media screen and (max-width: 720px) {
+    
+    .header__superior{
+        padding: 10px;
+    }
+
+    .logo img{
+        width: 180px;
+    }
+
+    nav > ul{
+        flex-direction: column;
+        background-color: #023877;
+        position: fixed;
+        left: 0;
+        top: 158px;
+        width: 100%;
+        height: 0px;
+        transition: all 300ms ease;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    nav > ul > li > a:hover{
+        transform: scale(1);
+    }
+
+    nav ul li ul{
+        left: 90px;
+    }
+    nav > ul > li:hover ul{
+        top: 50px;
+    }
+
+    nav > ul > li:first-child a{
+        background-position: 20px;
+    }
+
+    #selected{
+        transform: scale(1);
+    }
+
+    #label__check{
+        display: block;
+    }
+
+    .icon__menu{
+        display: flex;
+    }
+
+    #check__menu:checked ~ nav > ul{
+        height: 300px;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    main{
+        margin-top: 158px;
+    }
+}
+
+/* Global */
+p{
+    font-family: var(--fuenteParrafos);
+}
+img{
+    max-width: 100%;
+}
+
+/* Pagina HTML Index*/
+.center__index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+.contenido__index p{
+    padding-top: 1.5rem;
+    line-height: 1.8rem;
+    font-family: var(--fuenteParrafos);
+}
+
+/* PAGINA HTML DE MISION Y VISION */
+.Main_Mision_Vision{
+    margin-left: 0;
+}
+.Main_Mision_Vision h1{
+    text-align: center;    
+}
+
+.Main_Mision_Vision section{
+    margin: 50px;
+}
+.Main_Mision_Vision p{
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    line-height: 1.8rem;
+}
+.img__MisionVision{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PAGINA HTML DE INFORMACION GENERAL */
+
+.info_empresa h1{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.parrafo_info{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 18px;
+    margin-left: 50px;
+}
+
+.bold{
+    font-weight: bold;
+}
+.imgAso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+/* PAGINA HTML DE REDES SOCIALES*/
+.redesSociales h1{
+    text-align: center;
+    margin-top: 2rem;
+}
+.redesSociales h3{
+    font-size: 1.7rem;
+    padding-bottom: 3rem;
+}
+.redesSociales p{
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+    margin-left: 50px;
+}
+.img__Facebook{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+}
+.img__Instagram{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+}
+
+/* Header */
+.header__inferior{
+    background-image: url(../img/imagenIndex.png);
+    height: 45rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/*Login*/
+.f_login{
+    width: 800px;
+    height: 850px;
+    background-color: #0099e9;
+    margin: auto;
+    margin-top: 100px;
+    box-shadow: 7px 13px 37px #000;
+    padding: 20px 30px;
+    border-top: 4px solid #0057da;
+    color: rgb(0, 238, 255);
+  }
+
+  .f_login h2{
+      margin: 0;
+      text-align: center;
+      height: 40px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid;
+      font-size: 20px;
+  }
+  .f_login h3{
+      margin-bottom: 2px;
+      text-align: left;
+      height: 20px;
+      color: #000;
+  }
+.controls {
+width: 100%;
+border: 1px solid #0099e9;
+margin-bottom: 15px;
+padding: 11px 10 px;
+background: #ffffff;
+font-size: 14px;
+font-weight: bold;
+height: 40px;
+}
+.buttons{
+   width: 100%;
+   height: 40px;
+   background: #000; 
+   border: none;
+   color: white;
+   margin-bottom: 16px;
+}
+.buttons:hover{
+    color: #000;
+    background: #fff;
+}
+.f_login p{
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.f_login a{
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
+}
+.f_login a:hover{
+    text-decoration: underline;
+    color: #fff;
+}
+.alert alert-danger{
+    color: #ff0000;
+}
+
+.logo_l{
+    display: flex;
+    justify-content: center;
+}
+.logo_l img{
+    
+    width: 200px;
+    height: 200px;
+}
+
+.recu_contra {
+    width: 400px;
+    height: 400px;
+    background-color: #006aa3;
+    margin: auto;
+    margin-top: 100px;
+    box-shadow: 7px 13px 37px #000;
+    padding: 20px 30px;
+    border-top: 4px solid #016ea8;
+    color: rgb(0, 0, 0);
+}
+
+.recu_contra h1{
+    margin: 0;
+    text-align: center;
+    height: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+}
+.recu_contra h3{
+    margin-bottom: 2px;
+    text-align: left;
+    height: 20px;
+    color: #000;
+}
+
+.log_R{
+    display: flex;
+    justify-content: center;
+}
+.log_R img {
+    width: 150px;
+    height: 150px;
+}
+
+.primer_i{
+    width: 400px;
+    height: 650px;
+    background-color: #0099e9;
+    margin: auto;
+    margin-top: 100px;
+    box-shadow: 7px 13px 37px #000;
+    padding: 20px 30px;
+    border-top: 4px solid #0057da;
+    color: rgb(0, 238, 255);
+}
+
+.button11 {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button11:hover {
+    background-color: #ccc;
+  }
+
+  

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactenos Creo en ti</title>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&family=Staatliches&display=swap"
+        rel="stylesheet">
+    <!-- Preload -->
+    <link rel="preload" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="preload" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Libreria de JavaScrip -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/Contactenos.js"></script>
+    
+
+    <!--__________________________________________Responsive____________________________________________-->
+    <!-- Para Escritorio -->
+    <link rel="stylesheet" media="screen and (min-device-width: 1025px) and (max-width: 1440px)" href="../css/desktop-style.css" />
+    <!-- Para Celular -->
+    <link rel='stylesheet' media='screen and (min-width: 100px) and (max-width: 767px)' href='../css/mobile-style.css' />
+    <!-- Para Tablet -->
+    <link rel='stylesheet' media='screen and (min-width: 768px) and (max-width: 1024px)' href='../css/medium-style.css' />
+
+
+    
+</head>
+
+<body>
+
+    <header>
+        <div class="header__superior">
+            <div class="logo">
+                <img src="../img/asociacion.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="contenedor__menu">
+
+            <div class="menu">
+                <input type="checkbox" id="check__menu">
+                <label id="label__check" for="check__menu">
+                    <i class="fa-solid fa-bars icon__menu"></i>
+                </label>
+                <nav>
+                    <ul>
+                        <li> <a href="#" id="selected"></a></li>
+                        <li> <a href="#">Conocenos +</a>
+                            <ul>
+                                <li><a href="#">Redes Sociales</a></li>
+                                <li><a href="mision_vision.html">Misión y Visión</a></li>
+                                <li><a href="informacion_general.html">Información General</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="#">Proyectos +</a>
+                            <ul>
+                                <li><a href="#">Proyectos en proceso</a></li>
+                                <li><a href="#">Proyectos a futuro</a></li>
+                                <li><a href="#">Proyectos realizados</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="#">Como Ayudar +</a>
+                            <ul>
+                                <li><a href="Como_Donar.html">¿Cómo donar?</a></li>
+                                <li><a href="#">Voluntariado</a></li>
+                                <li><a href="Contactenos.html">Contàctenos</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="">Miembros</a></li>
+                        <li> <a href="Donar.html">Dona Aqui</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header> <!-- Fin Header -->
+
+    <section class="formulario_contac" class="">
+        <section class="info_contac">
+            <section class="info_title">
+                <span class="fa fa-user-circle"></span>
+                <h2>Contàctenos</h2><p>
+                    Si deseas contactarte con la Asociacion Creo en ti, envianos un mensaje y nos pondremos en contracto.
+                </p>
+            </section>
+            <section class="elementos">
+                <p><span class="fa fa-envelope"></span> asociacioncreoenti@gmail.com</p>
+                <p><span class="fas fa-phone"></span> 2222-0493</p>
+                <p><span class="fa fa-map-marked"></span> Tegucigalpa, Honduras</p>
+            </section>
+        </section>
+
+        <!-- Inicio del formulario -->
+        <form action="Enviar_Contactenos.php" method="post" class="form_mensaje">
+            <h2><strong> Envia un Mensaje</strong></h2>
+            <div class="info_usuario">
+                <!-- Nombre del usuario -->
+                <label for="names">Nombre</label>
+                <input type="text" id="names" name="nombre" placeholder="   Ingrese su nombre" required>
+                <!-- Numero de celular del usuario -->
+                <label for="phone">Telefono / Celular</label>
+                <input type="text" id="phone" name="telefono"placeholder="   Ingrese su numero telefonico">
+                <!-- Correo Electronico del usuario -->
+                <label for="email">Correo electronico</label>
+                <input type="text" id="email" name="correo" placeholder="   Eje. info@gmail.com" required>
+                <!--Asunto por el cual el usuario desea contactarse con la asociacion-->
+                <label for="asunto"> Asunto</label>
+                <input type="text" id="asunto" name="asuntos" placeholder="   ¿Porque deseas contactarnos?" required>
+                <!-- Descripcion del mensaje del usuario -->
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="   Descripcion del mensaje" required></textarea>
+                <!-- Botton para enviar el mensaje -->
+                <input type="submit" value="Enviar Mensaje" id="btnSend">
+            </div>
+        </form>
+    </section>
+
+</body>
+
+</html>

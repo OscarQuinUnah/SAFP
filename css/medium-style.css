@@ -1,0 +1,388 @@
+/*______________________________________________________*/
+/* FORMULARIO =================================== */
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing:border-box;
+  }
+  
+  :focus{
+      outline: none;
+  }
+
+  body{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,31,0.9724264705882353) 37%, rgba(0,212,255,1) 73%, rgba(2,6,6,1) 99%);
+    font-family: 'Open sans';
+}
+  
+  
+  
+  /* FORMULARIO =================================== */
+  
+  .formulario_contac{
+      width: 95%;
+      height: 100%;
+      margin: 50px auto;
+      display: flex;
+      margin-top: 300px;
+  
+      background: #d7f8d6;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Informacion de Contacto*/ 
+  .info_contac{
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #46f188b4;
+  }
+
+  .info_title p{
+      font-size: 18px;
+      line-height: 1.6;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 25px;
+      text-align: justify;
+      color: #000000;
+      
+  }
+  
+  .info_title, .elementos{
+      color: #000000;
+  }
+
+
+  .info_title span{
+      font-size: 90px;
+      display: block;
+      text-align: center;
+      margin-bottom: 15px;
+      color: #098119;
+  }
+  
+  .info_title h2{
+
+      font-size: 35px;
+      text-align: center;
+  }
+  
+  .elementos p{
+      display: flex;
+      align-items: center;
+  
+      font-size: 16px;
+      font-weight: 600;
+      margin: 10px;
+      
+  }
+  
+  .elementos p:nth-child(1) span{
+      font-size: 30px;
+      margin-right: 25px;
+      color:#098119; 
+  }
+  
+  .elementos p:nth-child(2) span{
+      font-size: 30px;
+      margin-right: 15px;
+      margin-left: 4px;
+      color:#098119; 
+  }
+  .elementos p:nth-child(3) span{
+    font-size: 30px;
+    margin-right: 15px;
+    margin-left: 4px;
+    color:#098119;    
+}
+  
+  
+  /* Formulario de mensaje (contacto)*/
+  form.form_mensaje{
+      width: 62%;
+      padding: 30px 40px;
+  }
+  
+  form.form_mensaje h2{
+      font-size: 25px;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 30px;
+      text-align: center;
+  }
+  
+  form.form_mensaje .info_usuario{
+      display: flex;
+      flex-direction: column;
+  }
+  
+  form.form_mensaje label{
+      font-weight: 600;
+  }
+  
+  form.form_mensaje input, form.form_mensaje textarea{
+      width: 100%;
+      padding: 8px 0px 5px;
+      margin-bottom: 20px;
+  
+      border: none;
+      border-bottom: 2px solid #D1D1D1;
+  
+      font-family: 'Open sans';
+      color: #5A5A5A;
+      font-size: 14px;
+      font-weight: 400;
+  }
+  
+  form.form_mensaje textarea{
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 90px;
+  }
+  
+  form.form_mensaje input[type="submit"]{
+      margin-top: 35px;
+      background: #187743;
+      padding: 10px;
+      border: none;
+      border-radius: 25px;
+  
+      align-self: flex-end;
+  
+      color: #fff;
+      font-family: 'Open sans';
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+  }
+  
+  form.form_mensaje input[type="submit"]:hover{
+      background: #3371B6;
+  }
+  
+  .modal_Advertencia{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje_modal{
+    background: #C3E3CF;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    width: 400px;
+    padding: 30px 20px 15px;
+}
+
+.mensaje_modal h3{
+    text-align: center;
+    font-family: Rockwell,"Times New Roman",serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.mensaje_modal h4{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-size: 20px;
+  font-weight: 100;
+  border-left: #606060;
+  margin-bottom: 15px;
+}
+
+
+.mensaje_modal h3:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #003249;
+    margin: 10px 0px 15px;
+}
+
+.mensaje_modal p{
+    font-size: 16px;
+    color: #000000;
+}
+
+.mensaje_modal p:before{
+    content: "\f00d";
+    font-family: 'FontAwesome';
+    display: inline-block;
+    color: #990000;
+    margin-right: 8px;
+}
+
+#btnClose{
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-left: 300px;      
+    background: #3a61aa;
+    color: #fff;
+    border: 2px solid #000000;
+    cursor: pointer;  
+}
+
+/* MENSAJE EXITOSO*/
+.mensaje_exito{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #C3E3CF;
+}
+
+.mensaje_exito h1{
+  font-size: 35px;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mensaje_exito h3{
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.mensaje_exito a{
+  display: block;
+  padding: 10px 30px;
+  background: #022246;
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.mensaje_exito a:hover{
+  background: #5a40ec;
+}
+/*login*/
+.f_login{
+    width: 400px;
+    height: 650px;
+    background-color: #0099e9;
+    margin: auto;
+    margin-top: 100px;
+    box-shadow: 7px 13px 37px #000;
+    padding: 20px 30px;
+    border-top: 4px solid #0057da;
+    color: rgb(0, 238, 255);
+  }
+  
+  .f_login h2{
+      margin: 0;
+      text-align: center;
+      height: 40px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid;
+      font-size: 20px;
+  }
+  .f_login h3{
+      margin-bottom: 2px;
+      text-align: left;
+      height: 20px;
+      color: #000;
+  }
+  .controls {
+  width: 100%;
+  border: 1px solid #0099e9;
+  margin-bottom: 15px;
+  padding: 11px 10 px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  }
+  .buttons{
+     width: 100%;
+     height: 40px;
+     background: #000; 
+     border: none;
+     color: white;
+     margin-bottom: 16px;
+  }
+  .buttons:hover{
+      color: #000;
+      background: #fff;
+  }
+  .f_login p{
+      height: 40px;
+      text-align: center;
+      border-bottom: 1px solid;
+  }
+  
+  .f_login a{
+      color: black;
+      text-decoration: none;
+      font-size: 17px;
+  }
+  .f_login a:hover{
+      text-decoration: underline;
+      color: #fff;
+  }
+  .alert alert-danger{
+      color: #ff0000;
+  }
+  
+  .logo_l{
+      display: flex;
+      justify-content: center;
+  }
+  .logo_l img{
+      
+      width: 200px;
+      height: 200px;
+  }
+  
+  .recu_contra {
+      width: 400px;
+      height: 400px;
+      background-color: #006aa3;
+      margin: auto;
+      margin-top: 100px;
+      box-shadow: 7px 13px 37px #000;
+      padding: 20px 30px;
+      border-top: 4px solid #016ea8;
+      color: rgb(0, 0, 0);
+  }
+  
+  .recu_contra h1{
+      margin: 0;
+      text-align: center;
+      height: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid;
+      font-size: 20px;
+  }
+  .recu_contra h3{
+      margin-bottom: 2px;
+      text-align: left;
+      height: 20px;
+      color: #000;
+  }
+  

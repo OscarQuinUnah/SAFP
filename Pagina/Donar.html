@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactenos Creo en ti</title>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&family=Staatliches&display=swap"
+        rel="stylesheet">
+    <!-- Preload -->
+    <link rel="preload" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="preload" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Libreria de JavaScrip -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/Contactenos.js"></script>
+    
+
+    <!--__________________________________________Responsive____________________________________________-->
+    <!-- Para Escritorio -->
+    <link rel="stylesheet" media="screen and (min-device-width: 1025px) and (max-width: 1440px)" href="css/desktop-style.css" />
+    <!-- Para Celular -->
+    <link rel='stylesheet' media='screen and (min-width: 100px) and (max-width: 767px)' href='css/mobile-style.css' />
+    <!-- Para Tablet -->
+    <link rel='stylesheet' media='screen and (min-width: 768px) and (max-width: 1024px)' href='css/medium-style.css' />
+
+</head>
+<body>
+    
+    <header>
+
+        <div class="header__superior">
+            <div class="logo">
+                <img src="img/asociacion.jpg" alt=""> 
+            </div>
+        </div>
+
+        <div class="contenedor__menu">
+
+            <div class="menu">
+                <input type="checkbox" id="check__menu">
+                <label id="label__check" for="check__menu">
+                    <i class="fa-solid fa-bars icon__menu"></i>
+                </label>
+                <nav>
+                    <ul>
+                        <li> <a href="#" id="selected"></a></li>
+                        <li> <a href="#">Conocenos +</a>
+                            <ul>
+                                <li><a href="#">Redes Sociales</a></li>
+                                <li><a href="mision_vision.html">Misión y Visión</a></li>
+                                <li><a href="informacion_general.html">Información General</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="#">Proyectos +</a>
+                            <ul>
+                                <li><a href="#">Proyectos en proceso</a></li>
+                                <li><a href="#">Proyectos a futuro</a></li>
+                                <li><a href="#">Proyectos realizados</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="#">Como Ayudar +</a>
+                            <ul>
+                                <li><a href="#">¿Cómo donar?</a></li>
+                                <li><a href="#">Voluntariado</a></li>
+                                <li><a href="Contactenos.html">Contactenos</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="Login.php">Miembros</a></li>
+                        <li> <a href="Donar.html">Dona Aqui</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+    </header> <!-- Fin Header -->
+
+    <main class="Donar">
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+              <div id="paypal-button-container"></div>
+            </div>
+          </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+        <script>
+          function initPayPalButton() {
+            paypal.Buttons({
+              style: {
+                shape: 'pill',
+                color: 'blue',
+                layout: 'vertical',
+                label: 'pay',
+                
+              },
+      
+              createOrder: function(data, actions) {
+                return actions.order.create({
+                  purchase_units: [{"description":"Dona lo que quieras","amount":{"currency_code":"USD","value":1}}]
+                });
+              },
+      
+              onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                  
+                  // Full available details
+                  console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+      
+                  // Show a success message within this page, e.g.
+                  const element = document.getElementById('paypal-button-container');
+                  element.innerHTML = '';
+                  element.innerHTML = '<h3>Gracias por su donacion!</h3>';
+      
+                  // Or go to another URL:  actions.redirect('thank_you.html');
+                  
+                });
+              },
+      
+              onError: function(err) {
+                console.log(err);
+              }
+            }).render('#paypal-button-container');
+          }
+          initPayPalButton();
+        </script>
+    </main>
+</body>
+</html>
