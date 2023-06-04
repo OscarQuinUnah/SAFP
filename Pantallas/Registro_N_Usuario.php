@@ -130,18 +130,39 @@ function mostrarContrasena() {
         <input class="controls" type="text" name="R_Nombre" oninput="this.value = this.value.toUpperCase();" onkeypress="return soloLetras(event);" placeholder="Ingrese su Nombre completo"><br> <!--text de nombre completo -->
         <h3>Nombre de Usuario</h3>
         <input class="controls" type="text" maxlength="15" name="R_usuario" onkeypress="return validarMayusculas(event)" onpaste="impedirPegar(event)" oninput="this.value = this.value.toUpperCase();" placeholder="Ingrese su Usuario"><br>
-        <h3>Contraseña </h3> <button type="button" class="fa fa-eye" onclick="mostrarContrasena()"></button>
+        <h3>Contraseña </h3>
         <input class="controls" type="password" maxlength="<?php echo $Max_Pass ?>" name="R_contra" id="R_contra" onkeypress="return bloquearEspacio(event)" onpaste="impedirPegar(event)" placeholder="Ingrese su Contraseña"><br>
         <h3>Confirmar Contraseña</h3>
-        <input class="controls" type="password" maxlength="<?php echo $Max_Pass ?>" name="R_contra_2" id="R_contra_2" onkeypress="return bloquearEspacio(event)" onpaste="impedirPegar(event)" placeholder="Ingrese nuevamente la Contraseña"><br>
+        <div class="input-container">
+        <input class="controls" type="password" maxlength="<?php echo $Max_Pass ?>" name="R_contra_2" id="R_contra_2" onkeypress="return bloquearEspacio(event)" onpaste="impedirPegar(event)" placeholder="Confirmar contraseña"><br>
+        <button type="button" class="fa fa-eye" onclick="mostrarContrasena()"></button>
+        </div>
         <h3>Correo Electronico</h3>
-        <input class="controls" type="text" name="R_correo" placeholder="Ingrese su Correo Electronico"><br>
+        <input class="controls" type="text" name="R_correo" placeholder="Ingrese su Correo"><br>
 
         <input class="buttons" type="submit" Class="btn" name="btn_enviar_R" value="Enviar">  <!--boton que envia los datos de registro al controlador -->
        
     </form>
     <section>
     <li><a href="../Pantallas/Login.php">Volver Atras</a></li> <!-- text que te manda a login-->
+    <style>
+      .input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.controls {
+  padding-right: 232px;
+}
+
+.fa.fa-eye {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+    </style>
 </body>
 
 </html>

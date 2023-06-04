@@ -53,6 +53,7 @@
 
         <h3>Seleccione una pregunta</h3>
         <select class="controls" type="text" name="Pregunta" required ><br>
+        <option value="">Seleccione un pregunta</option>
             <?php
         while($row=mysqli_fetch_array($sql)){
         ?>

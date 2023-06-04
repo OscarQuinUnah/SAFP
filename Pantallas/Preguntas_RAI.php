@@ -40,6 +40,7 @@ $sql=$conexion->query("SELECT * FROM tbl_preguntas");
 
 <h3 style="margin-top:40px; margin-bottom:30px; text-align:center ">Seleccione una pregunta</h3>
 <select class="controls" type="text" name="Pregunta" required ><br>
+<option value="">Seleccione un pregunta</option>
     <?php
 while($row=mysqli_fetch_array($sql)){
 ?>
