@@ -82,7 +82,7 @@ class EVENT_BITACORA{
         $Descripcion = "Salió del sistema" ;
         $fecha = date("Y-m-d h:i:s");
         $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
-        VALUES (NULL,'$fecha', '$IDGlobal', '16', 'Cerrar sesion', '$Descripcion')";
+        VALUES (NULL,'$fecha', '$IDGlobal', '16', 'Cerrar sesión', '$Descripcion')";
         $consulta2= $conexion->prepare($sql2);
         $consulta2->execute();                 
         ?>
