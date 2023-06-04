@@ -12,7 +12,9 @@ require_once "../../EVENT_BITACORA.php";
 //Parte 2
                 
 $R_Fecha_actual = date('Y-m-d');       /*obtiene la fecha actual*/
-session_start();     
+$model = new EVENT_BITACORA;
+session_start();
+$model->entrarTFondo();   
 $usuario=$_SESSION['user'];
 $ID_Rol=$_SESSION['ID_Rol'];
 

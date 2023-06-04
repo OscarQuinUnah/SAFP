@@ -1,5 +1,8 @@
 <?php
-session_start();     
+require_once "../../EVENT_BITACORA.php";
+$model = new EVENT_BITACORA;
+session_start();
+$model->entrarbackup();    
 $usuario=$_SESSION['user'];
 $ID_Rol=$_SESSION['ID_Rol'];
 

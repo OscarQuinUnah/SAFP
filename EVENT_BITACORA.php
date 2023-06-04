@@ -1,7 +1,7 @@
 <?php
 class Conexion{
     public function  conectar(){
-       return $conexion= new PDO('mysql:host=localhost; dbname=u511180871_bd_asociacion' , 'u511180871_root' , '6L^yVk8Hd');
+       return $conexion= new PDO('mysql:host=localhost; dbname=bd_asociacion_creo_en_ti' , 'root' , '');
     }
     
 }
@@ -46,39 +46,49 @@ class EVENT_BITACORA{
     
     //===================================================================================
     //===================================================================================
-    public function Cerrarlogin(){
+    public function entrarhome(){
         
+        $IDGlobal=$_SESSION['ID_User'];
         $model = new conexion();
         $conexion = $model->conectar();
-        $sql = "SELECT * FROM tbl_ms_usuario where Usuario=:usuario AND Contraseña=:contra AND Estado_Usuario ='ACTIVO'";
-        $consulta = $conexion->prepare($sql);
-        $consulta->bindParam(':usuario',$this->usuario,PDO::PARAM_STR);
-        $consulta->bindParam(':contra',$this->contra,PDO::PARAM_STR);
-        $consulta->execute();
-        $total = $consulta->rowCount();
-        if($total ==0){
-            ?>
-
-            <?php
-        }else{
-            $fecha = date("Y-m-d");
-            $hora = date("H:i:s");
-            
-            $fila = $consulta->fetch();
-
-            $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha,ID_Usuario,ID_Objeto,Accion,Descripcion) VALUES(NULL,'$fecha', '".$fila['ID_Usuario']."','16','Salida de sesion','Salio del sistema sistema')";
-            #$sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha,ID_Usuario,ID_Objeto,Accion,Descripcion) VALUES(NULL,'$fecha', '".$fila['ID_Usuario']."','".$fila['ID_Objeto']."','Inicio de secion','Entro al sistema')";
-            $consulta2= $conexion->prepare($sql2);
-            $consulta2->execute();
-
-            session_start();
-            $_SESSION['IDUsuario'] = $fila['ID_Usuario'];
-            ?>
-
-        <?php
-        }
+        $Descripcion = "Entró a la pantalla Home" ;
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '16', 'Entrar a Home', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();                 
+        ?>
+    <?php
+    }
+    public function Cerrarlogin(){
+        
+        $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Salió del sistema" ;
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '16', 'Cerrar sesion', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();                 
+        ?>
+    <?php
     }
     
+    public function entrarusuario(){
+        $IDGlobal=$_SESSION['ID_User'];
+            $model = new conexion();
+            $conexion = $model->conectar();
+            $Descripcion = "Entró a la pantalla Usuarios" ;
+            $fecha = date("Y-m-d h:i:s");
+            $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+            VALUES (NULL,'$fecha', '$IDGlobal', '1', 'Entrar a Usuarios', '$Descripcion')";
+            $consulta2= $conexion->prepare($sql2);
+            $consulta2->execute();                 
+            ?>
+        <?php
+    }
+
     //===================================================================================
     //===================================================================================
     #registro usuario
@@ -230,7 +240,20 @@ class EVENT_BITACORA{
     //===================================================================================
 
 
-
+#entrar fondos
+public function EntrarFondo(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla de fondo" ;
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '7', 'Entrar a fondo', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+}
 ##Insert fondos
 public function RegaInsertFondo(){
     session_start();
@@ -316,6 +339,22 @@ public function RegUptFondo(){
 
      //===================================================================================
     //===================================================================================
+      #entrar voluntario
+      public function entrarvol(){
+
+        $IDGlobal=$_SESSION['ID_User'];
+
+            $model = new conexion();
+            $conexion = $model->conectar();
+            $Descripcion = "Entró a la pantalla Voluntarios";
+            $fecha = date("Y-m-d h:i:s");
+            $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+            VALUES (NULL,'$fecha', '$IDGlobal', '9', 'Entrar a voluntario', '$Descripcion')";
+            $consulta2= $conexion->prepare($sql2);
+            $consulta2->execute();         
+            ?> 
+        <?php
+    }
     #registro voluntario
     public function RegInsertvol(){
         session_start();
@@ -390,6 +429,20 @@ public function RegUptFondo(){
     }
      //===================================================================================
     //===================================================================================
+    #entrar pago
+    public function entrarPago(){
+        $IDGlobal=$_SESSION['ID_User'];
+            $model = new conexion();
+            $conexion = $model->conectar();
+            $Descripcion = "Entró a la pantalla pago ";
+            $fecha = date("Y-m-d h:i:s");
+            $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+            VALUES (NULL,'$fecha', '$IDGlobal', '10', 'Entrar a Pago', '$Descripcion')";
+            $consulta2= $conexion->prepare($sql2);
+            $consulta2->execute();     
+            ?>
+        <?php
+    }
 #registro pago
     public function RegInsertPago(){
         session_start();
@@ -467,12 +520,25 @@ public function RegUptFondo(){
 
       //===================================================================================
     //===================================================================================
+    #registro donante
+public function entrarDon(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla donantes";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '8', 'Entrar a Donantes', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();   
+        ?>
+    <?php
+  }
 #registro donante
 public function RegInsertDon(){
     session_start();
     $IDGlobal=$_SESSION['ID_User'];
   $donante= $_SESSION['DonanteBitacora'];
-  $_SESSION['IDdonanteBitacora'];
         $model = new conexion();
         $conexion = $model->conectar();
         $Descripcion = "Nuevo Donante agregado: ".$donante;
@@ -538,6 +604,21 @@ public function DeleteDon(){
     }
 
   //===================================================================================
+  #entrar SAR   
+public function entrarSar(){
+
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla SAR";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '11', 'Entrar a SAR', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();   
+        ?>
+    <?php
+  }
 #registro SAR   
 public function RegInsertSar(){
     session_start();
@@ -551,12 +632,8 @@ public function RegInsertSar(){
         $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
         VALUES (NULL,'$fecha', '$IDGlobal', '11', 'Creacion de registro SAR', '$Descripcion')";
         $consulta2= $conexion->prepare($sql2);
-        $consulta2->execute();
-
-        
-      
+        $consulta2->execute();   
         ?>
-
     <?php
   }
 
@@ -597,6 +674,20 @@ public function DeleteSar(){
     <?php
 }
   //===================================================================================
+  #Entrar Rol
+public function entrarRol(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla roles";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '5', 'Entrar a Roles', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
 #registro Rol
 public function RegInsertRol(){
     session_start();
@@ -648,6 +739,20 @@ public function DeleteRol(){
     <?php
 }
  //===================================================================================
+ #entrar preguntas
+public function entrarpreg(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Preguntas ";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '4', 'Entrar a preguntas', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
 #registro preguntas
 public function RegInsertpreg(){
     session_start();
@@ -682,7 +787,7 @@ public function RegInsertpreg(){
         <?php  
     }
           //===================================================================================
-#delete SAR 
+#delete preguntas
 public function Deletepreg(){
     session_start();
     $IDGlobal=$_SESSION['ID_User'];
@@ -700,7 +805,20 @@ public function Deletepreg(){
 
     <?php
 }
-
+#entrar parametro
+public function entrarpara(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Parametros";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '3', 'Entrar aparametros', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
 #registro parametro
 public function RegInsertpara(){
     session_start();
@@ -736,6 +854,20 @@ public function RegInsertpara(){
         <?php  
     }
 
+        #entrar Tipo de Fondo
+public function entrarTFondo(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Tipo Fondo";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '13', 'Entrar a Tipo Fondo', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
     #registro Tipo de Fondo
 public function RegInsertTFondo(){
     session_start();
@@ -788,7 +920,20 @@ public function DELInsertTFondo(){
         ?>
     <?php
   }
-
+ #entrar Area de trabajo
+ public function entrarAreaT(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Area de Trabajo";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '14', 'Entrar a area de trabajo', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
   #Insert Area de trabajo
 public function InsertAreaT(){
     session_start();
@@ -840,6 +985,20 @@ public function DELAreaT(){
     <?php
   }
 
+    #entrar Voluntario Projecto
+public function entrarVOLPRO(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla vinculacion de voluntarios";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '15', 'Entrar a Vinculacion de voluntario', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
      #Insert Voluntario Projecto
 public function InsertVOLPRO(){
     session_start();
@@ -891,6 +1050,34 @@ public function DELVOLPRO(){
     <?php
   }
 
+    #Entrar gestor Projecto
+public function entrarGProj(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Gestion de Proyectos";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '6', 'Entrar a Gestion de Proyecto', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
+    #Entrar Projecto
+public function entrarProj(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Proyectos";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '6', 'Entrar a proyecto', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
   #Insert Projecto
 public function InsertProj(){
     session_start();
@@ -942,6 +1129,20 @@ public function DELProj(){
     <?php
   }
 
+    #entrarTipo Pago
+public function entrarTPago(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Tipo de Pago";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '17', 'Entrar a Tipo Pago', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
       #Insert Tipo Pago
 public function InsertTPago(){
     session_start();
@@ -993,6 +1194,20 @@ public function DELTPago(){
     <?php
   }
 
+         #entrar OBJETO
+public function entrarObj(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Objetos";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '18', 'Entrar a Objetos', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
        #Insert OBJETO
 public function InsertObj(){
     session_start();
@@ -1289,6 +1504,20 @@ public function reportareaT(){
         $fecha = date("Y-m-d h:i:s");
         $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
         VALUES (NULL,'$fecha', '$IDGlobal', '14', 'Reporte area de trabajo', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();
+        ?>
+    <?php
+  }
+  #entrar backup 
+public function entrarbackup(){
+    $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Backup";
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '12', 'Entrar a Backup', '$Descripcion')";
         $consulta2= $conexion->prepare($sql2);
         $consulta2->execute();
         ?>

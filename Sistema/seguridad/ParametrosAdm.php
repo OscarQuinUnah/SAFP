@@ -2,7 +2,9 @@
 require '../../conexion_BD.php';
 /*esta variable impide que se pueda entrar al sistema principal si no se entra por login (crea un usuario global) */
 require_once "../../EVENT_BITACORA.php";
-session_start();     
+$model = new EVENT_BITACORA;
+session_start();
+$model->entrarpara();  
 $usuario=$_SESSION['usuario'];
 $ID_Rol=$_SESSION['ID_Rol'];
 

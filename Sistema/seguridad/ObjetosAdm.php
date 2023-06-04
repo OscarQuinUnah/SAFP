@@ -7,7 +7,9 @@ require '../../conexion_BD.php';
 require_once "../../EVENT_BITACORA.php";
 
 
-session_start();     
+$model = new EVENT_BITACORA;
+session_start();
+$model->entrarObj();    
 $usuario=$_SESSION['user'];
 $ID_Rol=$_SESSION['ID_Rol'];
 
