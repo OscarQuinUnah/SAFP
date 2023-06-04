@@ -1,7 +1,10 @@
 <?php
 
 require '../../conexion_BD.php';
+include("../../EVENT_BITACORA.php");
+$model = new EVENT_BITACORA;
 session_start();
+$model->entrarbitacora();
 $usuario=$_SESSION['user'];
 $ID_Rol=$_SESSION['ID_Rol'];
 
@@ -9,7 +12,7 @@ if (empty($_SESSION['user']) and empty($_SESSION['ID_User'])) {
     header('location:../../Pantallas/Login.php');
 	exit();
  }
-include("../../EVENT_BITACORA.php");
+
 // Definir la página actual. Si $_GET['pagina'] no está definido, se establece en 1
 $fecha_inicio = isset($_POST['fecha_inicio']) ? $_POST['fecha_inicio'] : '';
 $fecha_fin = isset($_POST['fecha_fin']) ? $_POST['fecha_fin'] : '';

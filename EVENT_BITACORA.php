@@ -46,6 +46,20 @@ class EVENT_BITACORA{
     
     //===================================================================================
     //===================================================================================
+    public function entrarbitacora(){
+        
+        $IDGlobal=$_SESSION['ID_User'];
+        $model = new conexion();
+        $conexion = $model->conectar();
+        $Descripcion = "Entró a la pantalla Bitacora" ;
+        $fecha = date("Y-m-d h:i:s");
+        $sql2 = "INSERT INTO tbl_ms_bitacora(ID_Bitacora,Fecha, ID_Usuario, ID_Objeto, Accion, Descripcion) 
+        VALUES (NULL,'$fecha', '$IDGlobal', '16', 'Entrar a Bitacora', '$Descripcion')";
+        $consulta2= $conexion->prepare($sql2);
+        $consulta2->execute();                 
+        ?>
+    <?php
+    }
     public function entrarhome(){
         
         $IDGlobal=$_SESSION['ID_User'];
