@@ -42,15 +42,15 @@ exit();
 // Datos de conexión a la base de datos
 
 $host = "localhost";
-$user = 'u511180871_root';
-$password = '6L^yVk8Hd';
-$database = 'u511180871_bd_asociacion';
+$user = 'u221487857_root';
+$password = 'c^1eCv1V';
+$database = 'u221487857_bd_asociacion';
 
 // Comprobar si se hizo clic en el botón "Crear copia de seguridad"
 if(isset($_POST['crear_copia_btn'])) {
   // Nombre del archivo de backup
   $conn = mysqli_connect($host, $user, $password, $database);
-$backups_folder = "/home/u511180871/domains/asociacioncreoenti.com/public_html/Sistema/seguridad/Backups/";
+$backups_folder = "/home/u221487857/domains/asociacionasfp.site/public_html/Sistema/seguridad/Backups/";
   // Nombre del archivo de backup
   $backup_file = $backups_folder . $database ."-" . date("Y-m-d_H-i-s") . ".sql";
   
@@ -161,7 +161,7 @@ $backups_folder = "/home/u511180871/domains/asociacioncreoenti.com/public_html/S
                       <option value="">Seleccione un archivo</option>
                         <?php
                         // Ruta absoluta de la carpeta de backups
-                        $backups_folder = "/home/u511180871/domains/asociacioncreoenti.com/public_html/Sistema/seguridad/Backups/";
+                        $backups_folder = "/home/u221487857/domains/asociacionasfp.site/public_html/Sistema/seguridad/Backups/";
 
                         // Obtener la lista de archivos de backup disponibles
                         $backup_files = glob($backups_folder . "*.sql");
@@ -194,7 +194,7 @@ $backups_folder = "/home/u511180871/domains/asociacioncreoenti.com/public_html/S
                             <option value="">Seleccione un Archivo </option>
                             <?php
                             // Ruta absoluta de la carpeta de backups
-                            $backups_folder = "/home/u511180871/domains/asociacioncreoenti.com/public_html/Sistema/seguridad/Backups/";
+                            $backups_folder = "/home/u221487857/domains/asociacionasfp.site/public_html/Sistema/seguridad/Backups/";
 
                             // Obtener la lista de archivos de backup disponibles
                             $backup_files = glob($backups_folder . "*.sql");
