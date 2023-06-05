@@ -1,14 +1,14 @@
 <?php
 // Configuración de la base de datos
 $host = "localhost";
-$user = 'u511180871_root';
-$password = '6L^yVk8Hd';
-$database = 'u511180871_bd_asociacion';
+$user = 'u221487857_root';
+$password = 'c^1eCv1V';
+$database = 'u221487857_bd_asociacion';
 // Ruta absoluta de la carpeta de backups
 // Configuración de la base de datos
 
 // Obtener la ruta absoluta del archivo de backup seleccionado
-$backup_file = "/home/u511180871/domains/asociacioncreoenti.com/public_html/Sistema/seguridad/Backups/" . $_POST['backup_file'];
+$backup_file = "/home/u221487857/domains/asociacionasfp.site/public_html/Sistema/seguridad/Backups/" . $_POST['backup_file'];
 
 // Crear la conexión PDO
 if (file_exists($backup_file) && pathinfo($backup_file, PATHINFO_EXTENSION) == 'sql') {
