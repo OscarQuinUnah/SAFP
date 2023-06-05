@@ -1,7 +1,7 @@
 <?php
 class Conexion{
     public function  conectar(){
-       return $conexion= new PDO('mysql:host=localhost; dbname=bd_asociacion_creo_en_ti' , 'root' , '');
+       return $conexion= new PDO('mysql:host=localhost; dbname=u221487857_bd_asociacion' , 'u221487857_root' , 'c^1eCv1V');
     }
     
 }
