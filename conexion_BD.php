@@ -1,6 +1,6 @@
 <?php
 try{
-$conexion = new mysqli("localhost", "root", "", "bd_asociacion_creo_en_ti", "3306");
+$conexion = new mysqli("localhost", "u221487857_root", "c^1eCv1V", "u221487857_bd_asociacion", "3306");
 $conexion->set_charset("utf8");
 /*aqui se da la conexion con la base de datos, es necesario que la base de datos posea este usuario para conectarse*/ 
 }catch(Exception $e){
