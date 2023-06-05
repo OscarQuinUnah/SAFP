@@ -3,7 +3,7 @@
 $backup_file = $_POST['backup_file'];
 
 // Ruta absoluta del archivo de backup a eliminar
-$backup_file_path = "/home/u511180871/domains/asociacioncreoenti.com/public_html/Sistema/seguridad/Backups/" . $backup_file;
+$backup_file_path = "/home/u221487857/domains/asociacionasfp.site/public_html/Sistema/seguridad/Backups/" . $backup_file;
 
 // Eliminar el archivo de backup
 if (unlink($backup_file_path)) {
