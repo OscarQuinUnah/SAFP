@@ -1,6 +1,6 @@
 <?php
 if (!empty($_POST["btn_enviar_M_P"])) {
-$conn = mysqli_connect("localhost", "root", "", "bd_asociacion_creo_en_ti", "3306");
+$conn = mysqli_connect("localhost", "u221487857_root", "c^1eCv1V", "u221487857_bd_asociacion", "3306");
 session_start();
 $User=$_SESSION['user'];
 $idUser=$_SESSION['ID_User'];
