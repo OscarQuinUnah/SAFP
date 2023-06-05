@@ -82,7 +82,7 @@ if (!empty($_POST["btn_Login"])) {
                            if ($intentos_u>=$intentos_p) {
                             //bloquea el usuario si llego a los intentos permitidos
                                 $sql1=$conexion->query("UPDATE tbl_ms_usuario SET Estado_Usuario='BLOQUEADO', Intentos='$intentos_u' WHERE Usuario='$usuario'");
-                               echo '<div class="alert alert-danger">Usuario Bloqueado, comuniquese con el Administrador del Sistema </div>';
+                               echo '<div class="alert-danger">Usuario Bloqueado, comuniquese con el Administrador del Sistema </div>';
 
                             } else {
                                 //suma intentos
@@ -95,7 +95,7 @@ if (!empty($_POST["btn_Login"])) {
                         
                         
 
-            echo '<div class="alert alert-danger">Usuario o contraseña incorrecto </div>';
+            echo '<div class="alert_danger">Usuario o contraseña incorrecto </div>';
 
         }
         

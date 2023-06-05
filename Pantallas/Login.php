@@ -29,11 +29,6 @@ if(isset($_POST['btn_Login'])){
     <link rel="preload" href="../css/style.css">
     <link rel="stylesheet" href="../css/style.css">
     
-    <link rel="stylesheet" media="screen and (min-device-width: 1025px) and (max-width: 1440px)" href="../css/desktop-style.css" />
-    <!-- Para Celular -->
-    <link rel='stylesheet' media='screen and (min-width: 100px) and (max-width: 767px)' href='../css/mobile-style.css' />
-    <!-- Para Tablet -->
-    <link rel='stylesheet' media='screen and (min-width: 768px) and (max-width: 1024px)' href='../css/medium-style.css' />
     <script>
 function validarMayusculas(e) {
 			var tecla = e.keyCode || e.which;
@@ -80,9 +75,11 @@ function mostrarPassword() {
     include ("../Controladores/controlador_login.php");
     ?>
             <?php 
-            if(isset($_GET['error'])) { ?>
-             <p class="error"><?php echo $_GET['error']; ?></p>
-            <?php } ?>
+if(isset($_GET['error'])) { ?>
+  <p class="error"><?php echo $_GET['error']; ?></p>
+<?php } ?>
+
+            
     
         <h3>Usuario</h3>
         <input class="controls" maxlength="15" type="text" name="usuario" onkeypress="return validarMayusculas(event)" onpaste="impedirPegar(event)"  oninput="this.value = this.value.toUpperCase();" style="text-transform:uppercase" placeholder="Ingrese su Usuario"><br> 
@@ -112,6 +109,14 @@ function mostrarPassword() {
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
     </style>
