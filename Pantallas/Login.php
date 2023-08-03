@@ -33,7 +33,7 @@ if(isset($_POST['btn_Login'])){
 function validarMayusculas(e) {
 			var tecla = e.keyCode || e.which;
 			var teclaFinal = String.fromCharCode(tecla).toUpperCase();
-			var letras = /^[A-Z]+$/;
+			var letras = /^[A-ZÁÉÍÓÚÜÑ\s]+$/;
 
 			if(!letras.test(teclaFinal)){
 				e.preventDefault();
