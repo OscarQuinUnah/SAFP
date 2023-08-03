@@ -53,7 +53,7 @@ function soloLetras(e) {
     var letra = String.fromCharCode(key).toLowerCase();
     
     // Definir la expresión regular
-    var soloLetras = /[a-z\s]/;
+    var soloLetras = /[a-záéíóúüñ\s]/;
     
     // Verificar si la letra es válida
     if (!soloLetras.test(letra)) {
@@ -67,7 +67,7 @@ function soloLetras(e) {
 function validarMayusculas(e) {
 			var tecla = e.keyCode || e.which;
 			var teclaFinal = String.fromCharCode(tecla).toUpperCase();
-			var letras = /^[A-Z]+$/;
+			var letras = /^[A-ZÁÉÍÓÚÜÑ\s]+$/;
 
 			if(!letras.test(teclaFinal)){
 				e.preventDefault();
